@@ -1,22 +1,21 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
 public class CartPageTest {
-    WebDriver driver;
-    DoorbellsPage doorbellsPage;
-    ProductPage productPage;
+    private WebDriver driver;
+    private DoorbellsPage doorbellsPage;
+    private ProductPage productPage;
 
-    @BeforeMethod
+    @BeforeTest
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "/Users/igor/Downloads/chromedriver");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
         driver.get("https://www.ring.com");
         MainPage mainPage = new MainPage(driver);
         mainPage.closeWelcomePopUp();
@@ -69,7 +68,7 @@ public class CartPageTest {
         Assert.assertEquals(cartPage.getProductName(), "Video Doorbell Pro", "name of product doesn't equal to expected");
     }
 
-    @AfterMethod
+    @AfterTest
     public void tearDown() {
         driver.quit();
     }
