@@ -14,7 +14,7 @@ public class DoorbellsPage {
         this.driver = driver;
     }
 
-    private By doorbellsNames = xpath("//a[contains(@class,'cflex grid-view')]//div[contains(text(),'Door')]");
+    private By doorbellsNames = xpath("//a[contains(@class,'cflex grid-view')]/div/div[1]");
     private By doorbellsPrices = xpath("//span[contains(@class,'product')]");
     private By buyNowButtons = xpath("//div[contains(@class,'product')]//a[@class='plp_button']");
 
