@@ -25,7 +25,7 @@ public class ProductPageTest {
 
     @Test
     public void changeQuantityTest() {
-        doorbellsPage.clickBuyNow(1);
+        doorbellsPage.clickBuyNowButton(1);
         productPage = new ProductPage(driver);
         Assert.assertEquals(productPage.getQuantityValue(), 1, "quantity doesn't equal to expected");
 
@@ -38,7 +38,7 @@ public class ProductPageTest {
 
     @Test
     public void priceNameOfDoorViewCamTest() {
-        doorbellsPage.clickBuyNow(1);
+        doorbellsPage.clickBuyNowButton(1);
         productPage = new ProductPage(driver);
         Assert.assertEquals(productPage.getProductName(), "Door View Cam", "name of product doesn't equal to expected");
         Assert.assertEquals(productPage.getProductPrice(), 199.00, "current price doesn't equal to expected");
@@ -46,7 +46,7 @@ public class ProductPageTest {
 
     @Test
     public void priceNameOfVideoDoorbellTest() {
-        doorbellsPage.clickBuyNow(2);
+        doorbellsPage.clickBuyNowButton(2);
         productPage = new ProductPage(driver);
         Assert.assertEquals(productPage.getProductName(), "Video Doorbell", "name of product doesn't equal to expected");
         Assert.assertEquals(productPage.getProductPrice(), 99.99, "current price doesn't equal to expected");

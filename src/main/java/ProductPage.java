@@ -5,7 +5,7 @@ import org.openqa.selenium.interactions.Actions;
 import static org.openqa.selenium.By.xpath;
 
 public class ProductPage {
-    WebDriver driver;
+    private WebDriver driver;
 
     public ProductPage(WebDriver driver) {
         this.driver = driver;

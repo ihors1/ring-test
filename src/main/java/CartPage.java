@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import static org.openqa.selenium.By.xpath;
 
 public class CartPage {
-    WebDriver driver;
+    private WebDriver driver;
 
     public CartPage(WebDriver driver) {
         this.driver = driver;

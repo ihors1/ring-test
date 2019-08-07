@@ -16,6 +16,7 @@ public class DoorbellsPage {
 
     private By doorbellsNames = xpath("//a[contains(@class,'cflex grid-view')]//div[contains(text(),'Door')]");
     private By doorbellsPrices = xpath("//span[contains(@class,'product')]");
+    private By buyNowButtons = xpath("//div[contains(@class,'product')]//a[@class='plp_button']");
 
 
     public List<WebElement> getDoorbellPrices() {
@@ -35,8 +36,12 @@ public class DoorbellsPage {
         return getDoorbellsNames().get(number - 1).getText();
     }
 
-    public ProductPage clickBuyNow(int number) {
-        driver.findElements(By.linkText("Buy Now")).get(number - 1).click();
+    public List<WebElement> getAllBuyNowButtons(){
+        return driver.findElements(buyNowButtons);
+    }
+
+    public ProductPage clickBuyNowButton(int number) {
+        getAllBuyNowButtons().get(number - 1).click();
         return new ProductPage(driver);
     }
 

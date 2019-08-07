@@ -25,7 +25,7 @@ public class CartPageTest {
 
     @Test
     public void priceInProductAndCartTest() {
-        doorbellsPage.clickBuyNow(3);
+        doorbellsPage.clickBuyNowButton(3);
         productPage = new ProductPage(driver);
         productPage.clickAddToCartButton();
         String productNameInPrPage = productPage.getProductName();
@@ -50,7 +50,7 @@ public class CartPageTest {
 
     @Test
     public void quantityAndNameInCartPageTest() {
-        doorbellsPage.clickBuyNow(4);
+        doorbellsPage.clickBuyNowButton(4);
         productPage = new ProductPage(driver);
         Assert.assertEquals(productPage.getQuantityValue(), 1, "current quantity of product doesn't equal to expected");
         Assert.assertEquals(productPage.getProductName(), "Video Doorbell Pro", "name of product doesn't equal to expected");
