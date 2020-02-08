@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import java.util.concurrent.TimeUnit;
 
 public abstract class BaseTest {
+
     protected WebDriver driver;
     private final static String baseUrl = "https://www.ring.com";
 
