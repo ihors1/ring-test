@@ -5,7 +5,7 @@ import ui.pageobject.DoorbellsPageView;
 import ui.pageobject.MainPageView;
 import ui.pageobject.ProductPageView;
 
-public class CartPageViewTest extends BaseTest {
+public class CartPageViewTest extends AbstractWebTest {
 
     @Test
     public void testPriceInProductAndCart() {
@@ -46,16 +46,15 @@ public class CartPageViewTest extends BaseTest {
         Assert.assertEquals(productPageView.getProductName(), "Video Doorbell Pro", "name of product isn't equal to expected");
 
         productPageView.clickAddToCartButton();
-        CartPageView cartPageView = productPageView.clickViewCart();
-        Assert.assertEquals(cartPageView.getQuantityValue(), 1, "current quantity of product isn't equal to expected");
-        Assert.assertEquals(cartPageView.getProductName(), "Video Doorbell Pro", "name of product isn't equal to expected");
+        cartPageViewSteps.checkProductsName("Video Doorbell Pro");
+        cartPageViewSteps.checkQuantityValue(1);
 
-        cartPageView.clickUpQuantityButton();
-        Assert.assertEquals(cartPageView.getQuantityValue(), 2, "current quantity of product isn't equal to expected");
+        cartPageViewSteps.clickUpQuantityButton();
+        cartPageViewSteps.checkQuantityValue(2);
 
-        cartPageView.clickDownQuantityButton();
-        Assert.assertEquals(cartPageView.getQuantityValue(), 1, "current quantity of product isn't equal to expected");
-        Assert.assertEquals(cartPageView.getProductName(), "Video Doorbell Pro", "name of product isn't equal to expected");
+        cartPageViewSteps.clickDownQuantityButton();
+        cartPageViewSteps.checkQuantityValue(1);
+        cartPageViewSteps.checkProductsName("Video Doorbell Pro");
     }
 
 }
